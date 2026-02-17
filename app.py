@@ -4,7 +4,7 @@ import cv2
 from tensorflow.keras.models import load_model
 
 # Load trained model
-model = load_model("plant_disease_cnn_model.h5")
+model = load_model("plant_disease_cnn_model.h5", compile=False)
 
 # Image size used during training
 img_size = (256, 256)
