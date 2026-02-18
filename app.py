@@ -12,18 +12,14 @@ model = load_model("plant_disease_model.keras", compile=False)
 # ----------------------------
 # Class Names
 # ----------------------------
-class_names = [
-    "Pepper__bell___Bacterial_spot",
-    "Tomato__Target_Spot",
-    "Tomato_healthy",
-    "Potato___healthy",
-    "Tomato_Spider_mites_Two_spotted_spider_mite",
-    "Potato___Early_blight",
-    "Tomato_Early_blight",
-    "Tomato_Bacterial_spot",
-    "Tomato_Leaf_Mold",
-    "Tomato__Tomato_mosaic_virus"
-]
+import json
+
+with open("class_indices.json") as f:
+    class_indices = json.load(f)
+
+class_names = list(class_indices.keys())
+
+
 
 # ----------------------------
 # Streamlit UI
