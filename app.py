@@ -2,24 +2,12 @@ import streamlit as st
 import numpy as np
 import cv2
 import tensorflow as tf
-from tensorflow import keras
+from tensorflow.keras.models import load_model
 
 # ----------------------------
-# Recreate model architecture
+# Load Full Keras Model
 # ----------------------------
-model = keras.models.Sequential([
-    keras.layers.Input(shape=(256, 256, 3)),
-    keras.layers.Conv2D(32, (3, 3), activation='relu'),
-    keras.layers.MaxPooling2D(2, 2),
-    keras.layers.Conv2D(64, (3, 3), activation='relu'),
-    keras.layers.MaxPooling2D(2, 2),
-    keras.layers.Flatten(),
-    keras.layers.Dense(128, activation='relu'),
-    keras.layers.Dense(10, activation='softmax')
-])
-
-# Load trained weights
-model.load_weights("plant_disease_cnn_model.h5")
+model = load_model("plant_disease_model.keras", compile=False)
 
 # ----------------------------
 # Class Names

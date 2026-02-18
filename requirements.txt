@@ -1,4 +1,4 @@
+tensorflow>=2.13
 streamlit
-tensorflow
 numpy
 opencv-python-headless
